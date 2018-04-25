@@ -67,29 +67,18 @@ class SecurityContext extends RawMinkContext
 
     private function logAs(UserInterface $user, $password): void
     {
-        //$driver = $this->getSession()->getDriver();
-        //$session = $this->getContainer()->get('session');
+
         $this->visitPath('/');
 
-        //if ($driver instanceof Selenium2Driver) {
-            $page = $this->getSession()->getPage();
+        $page = $this->getSession()->getPage();
 
-            $page->findById('anchor-a-cards2')->click();
-            $page->findField('_username')->setValue($user->getUsername());
-            $page->findField('_password')->setValue($password);
-            $page->findButton('Connexion')->press();
+        $page->findById('anchor-a-cards2')->click();
+        $page->findField('_username')->setValue($user->getUsername());
+        $page->findField('_password')->setValue($password);
+        $page->findButton('Connexion')->press();
 
-            return;
-        //}
+        return;
 
-        /*$token = new UsernamePasswordToken($user, null, 'main_context', $user->getRoles());
-        $session->set('_security_main_context', serialize($token));
-        $session->save();
-
-
-        $client = $driver->getClient();
-        $client->getCookieJar()->set(new Cookie($session->getName(), $session->getId()));
-        $this->getSession()->setCookie($session->getName(), $session->getId());*/
     }
 
     private function getUserRepository(): UserRepository

@@ -1,23 +1,23 @@
 default:
     suites:
-        acceptance:
-            contexts:
-                 - FeatureContext
-                 - SecurityContext
-                 - AdminContext
-                 - FixtureContext:
-                    em: "@doctrine.orm.default_entity_manager"
-            local_coverage_enabled: true
+#        acceptance:
+#            contexts:
+#                 - FeatureContext
+#                 - SecurityContext
+#                 - AdminContext
+#                 - FixtureContext:
+#                    em: "@doctrine.orm.default_entity_manager"
+#            local_coverage_enabled: true
 
-        system:
-            mink_session: default
-            contexts:
-                 - FeatureContext
-                 - SecurityContext
-                 - AdminContext
-                 - FixtureContext:
-                    em: "@doctrine.orm.default_entity_manager"
-            remote_coverage_enabled: true
+#        system:
+#            mink_session: default
+#            contexts:
+#                 - FeatureContext
+#                 - SecurityContext
+#                 - AdminContext
+#                 - FixtureContext:
+#                    em: "@doctrine.orm.default_entity_manager"
+#            remote_coverage_enabled: true
 
         default:
             contexts:

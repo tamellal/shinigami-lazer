@@ -99,10 +99,10 @@ class UserController extends Controller
         $user = $this->getDoctrine()->getRepository(User::class)->find($id);
 
         // si aucun utilisateur n'a été trouvé, on redirige vers la liste des clients avec un message de warning
-//        if (!$user) {
-//            $this->addFlash('warning', 'flash.user.not.found');
-//            return $this->redirectToRoute('admin_list_user', array(), 301);
-//        }
+        if (!$user) {
+            $this->addFlash('warning', 'flash.user.not.found');
+            return $this->redirectToRoute('admin_list_user', array(), 301);
+        }
 
         // si l'utilisateur a été trouvé, on le supprime et on renvoie vers l'index avec un message de success
         $em = $this->getDoctrine()->getManager();

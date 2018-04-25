@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>
+            {% block page_title %}{% trans %} base.welcome {% endtrans %} !{% endblock %}
+            {% block main_title %} | Shinigami Laser{% endblock %}
+        </title>
+        {% block stylesheets %}{% endblock %}
+    </head>
+    <body>
+    {% block alerts %}{% endblock %}
+    {% block body %}{% endblock %}
+    {% block javascripts %}{% endblock %}
+    {% block final_javascripts %}{% endblock %}
+    {% block outside %}{% endblock %}
+    </body>
+
+</html>

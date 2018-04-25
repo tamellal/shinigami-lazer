@@ -1,1 +1,2 @@
-# shinigami-lazer
+# shinigami-laser
+

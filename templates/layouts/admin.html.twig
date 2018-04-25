@@ -1,0 +1,42 @@
+{% extends 'layouts/layout.html.twig' %}
+
+{% block body %}
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="{{ path('admin_index') }}">ShinigAdmin</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
+                    aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a id="anchor-nav-customers" class="nav-link"
+                           href="{{ path('index') }}">{% trans %}nav.home{% endtrans %}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="anchor-nav-customers" class="nav-link"
+                           href="{{ path('admin_list_user') }}">{% trans %}nav.customers{% endtrans %}</a>
+                    </li>
+                    <li id="anchor-nav-cards" class="nav-item">
+                        <a class="nav-link" href="{{ path('admin_card_index') }}">{% trans %}nav.cards{% endtrans %}</a>
+                    </li>
+                    <li id="anchor-nav-cards" class="nav-item">
+                        <a class="nav-link" href="{{ path('admin_club_index') }}">{% trans %}nav.clubs{% endtrans %}</a>
+                    </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0" action="{{ path('admin_search_user') }}">
+                    <input class="form-control mr-sm-2" placeholder="{% trans %}nav.search.placeholder{% endtrans %}"
+                           type="text" name="n">
+                    <button class="btn btn-secondary my-2 my-sm-0"
+                            type="submit">{% trans %}nav.search{% endtrans %}</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    {{ parent() }}
+
+{% endblock %}

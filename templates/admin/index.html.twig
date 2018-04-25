@@ -1,0 +1,79 @@
+{% extends 'layouts/admin.html.twig' %}
+
+{% block body %}
+    {# Surcharge block body pour enlever la navbar #}
+
+    <h1 class="text-center mt-1 mb-3">ShinigAdmin</h1>
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-sm-12 col-md-6 col-lg-4">
+                <div class="card text-white bg-primary mx-auto mb-3" style="max-width: 20rem;">
+                    <div class="card-header"><h5>{% trans %}nav.customers{% endtrans %}</h5></div>
+                    <div class="card-body">
+                        <p class="card-text">{% trans with {'%count%': countUsers} %}admin.index.card.customers.text{% endtrans %}</p>
+                        <a class="card-link text-dark" data-toggle="modal"
+                           href="#ModalSearchUser">{% trans with {'%count%': 10} %}admin.index.modal.search.customer{% endtrans %}</a>
+                        <a class="card-link text-dark" href="{{ path('admin_list_user') }}">{% trans %}admin.index.customers.list{% endtrans %}</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-4">
+                <div class="card text-white bg-info mx-auto mb-3" style="max-width: 20rem;">
+                    <div class="card-header"><h5>{% trans %}nav.card{% endtrans %}</h5></div>
+                    <div class="card-body">
+                        <p class="card-text">{% trans with {'%count%': countCards} %}admin.index.card.marketing.text.plural{% endtrans %}</p>
+                        <a class="card-link text-dark" href="{{ path('admin_card_index') }}">{% trans %}admin.card.list{% endtrans %}</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-4">
+                <div class="card text-dark bg-light mx-auto mb-3" style="max-width: 20rem;">
+                    <div class="card-header">{{ 'nav.game'|trans() }}</div>
+                    <div class="card-body">
+                        <p class="card-text">{{ 'admin.index.game.manage'|trans() }}</p>
+                        <a class="card-link text-dark" href="{{ path('admin_game_create') }}">{% trans %}admin.index.new.game{% endtrans %}</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-4">
+                <div class="card text-white bg-success mx-auto mb-3" style="max-width: 20rem;">
+                    <div class="card-header"><h5>{% trans %}nav.club{% endtrans %}</h5></div>
+                    <div class="card-body">
+                        <p class="card-text">{% trans with {'%count%': countClubs} %}admin.index.club.text{% endtrans %}</p>
+                        <a class="card-link text-dark" href="{{ path('admin_club_index') }}">{% trans %}admin.index.clubs.list{% endtrans %}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {# Modal recherche d'utilisateur #}
+
+    <div class="modal fade" id="ModalSearchUser" tabindex="-1" role="dialog"
+         aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="modal-header col-sm-12">
+                            <h5 class="modal-title">{% trans %}admin.index.modal.search.customer{% endtrans %}</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body col-sm-12">
+                            <form class="form-inline" action="{{ path('admin_search_user') }}" method="get">
+                                <input class="form-control mr-3"
+                                       placeholder="{% trans %}user.lastname{% endtrans %}"
+                                       type="text" name="q">
+                                <button class="btn btn-secondary" type="submit">Go</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

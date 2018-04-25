@@ -1,0 +1,46 @@
+{% extends 'layouts/layout.html.twig' %}
+
+{% block body %}
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="{{ path('index') }}">Shinigami-Lazer</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
+                    aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a id="anchor-nav-customers" class="nav-link"
+                           href="{{ path('index') }}">{% trans %}nav.home{% endtrans %}</a>
+                    </li>
+                    {% if  not is_granted('IS_AUTHENTICATED_FULLY')  %}
+                         <li id="anchor-nav-cards" class="nav-item">
+                            <a class="nav-link" href="{{ path('security_signup') }}">{% trans %}nav.signup{% endtrans %}</a>
+                        </li>
+                        <li id="anchor-nav-cards" class="nav-item">
+                            <a class="nav-link" href="{{ path('security_login') }}">{% trans %}nav.login{% endtrans %}</a>
+                        </li>
+                    {% else %}
+                        <li id="anchor-nav-cards" class="nav-item">
+                            <a class="nav-link" href="{{ path('user_profile') }}">{% trans %}nav.profile{% endtrans %}</a>
+                        </li>
+                    {% endif %}
+                        <li id="anchor-nav-cards" class="nav-item">
+                            <a class="nav-link" href="{{ path('club_index') }}">{% trans %}nav.clubs{% endtrans %}</a>
+                        </li>
+                    {%  if is_granted('ROLE_ADMIN') %}
+                        <li id="anchor-nav-cards" class="nav-item">
+                            <a class="nav-link" href="{{ path('admin_index') }}">{% trans %}nav.admin{% endtrans %}</a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    {{ parent() }}
+
+{% endblock %}

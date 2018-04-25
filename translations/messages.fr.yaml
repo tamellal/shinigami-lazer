@@ -1,0 +1,100 @@
+# translations/messages.fr.yaml
+
+# Titles
+title.admin.club.update: 'Mise à jour'
+
+#layouts/base
+
+base.welcome: Bienvenue
+base.home: Accueil
+
+# flash messages
+
+flash.user.deleted: 'Client supprimé avec succès.'
+flash.user.not.found: 'Utilisateur non trouvé, veuillez essayer un autre critère.'
+flash.modif.saved: 'Modifications enregistrées !'
+flash.card.created: 'Carte créée avec succès !'
+flash.card.linkfailed: 'Carte non rattachée !'
+flash.card.linksuccess: 'Carte rattachée !'
+flash.password.mail.sent: 'Mail de rénitialisation de mot de passse envoyé'
+
+# layouts/admin et admin/index
+
+nav.customers: Clients
+nav.search: Recherche
+nav.search.placeholder: 'Saisissez le code carte...'
+nav.marketing: Marketing
+nav.card: 'Cartes de fidélité'
+nav.club: 'Clubs'
+nav.game: 'Partie'
+
+admin.index.card.customers.text: 'Il y a actuellement %count% clients inscrits.'
+
+admin.index.card.marketing.text.singular: "%count% client n'a pas lié sa carte."
+admin.index.card.marketing.text.plural: "%count% clients n'ont pas lié leur carte."
+
+admin.index.club.text: 'Il y a actuellement %count% clubs référencés.'
+admin.index.clubs.list: 'Liste des clubs'
+
+admin.index.modal.search.customer: "Recherche de client"
+
+admin.index.customers.list: "Liste des clients"
+
+admin.index.game.manage: 'Gestion des parties'
+admin.index.new.game: 'Créer une nouvelle partie'
+
+# admin/users
+
+admin.edit.user.info: 'Informations client'
+admin.edit.card.info: 'Carte de fidélité'
+admin.edit.delete.customer.text: 'Supprimer le client'
+admin.edit.delete.customer.confirm: 'Etes-vous sûr'
+
+# btn
+
+btn.save: Enregistrer
+btn.search: Recherche
+btn.delete: Supprimer
+btn.cancel: Annuler
+
+#user attributes
+
+user.firstname: Prénom
+user.lastname: Nom
+user.nickname: Pseudo
+user.address: Adresse
+user.birthdate: 'Date de naissance'
+user.email: Courriel
+user.phone: Téléphone
+
+# layouts/nav
+
+nav.home: Accueil
+nav.clubs: Clubs
+nav.cards: Cartes
+nav.signup: Inscription
+nav.login: Connexion
+nav.admin: Admin
+nav.profile: Profil
+nav.logout: Deconnexion
+
+# security/ users
+security.user.signup: Inscription
+security.user.login: Connexion
+security.user.lostpassword: 'Mot de passe oublié'
+security.user.lostpasswordtitle: 'MDP Perdu'
+
+# clubs
+club.list: Liste des clubs
+club.name: clubs
+
+# admin/card
+admin.card.list: 'Liste des cartes'
+admin.card.create: 'Création de carte'
+admin.card.update: 'Mise à jour de carte'
+
+# admin/club
+admin.club.list: 'Liste des clubs'
+admin.club.create: 'Création de club'
+admin.club.update: 'Mise à jour de club'
+

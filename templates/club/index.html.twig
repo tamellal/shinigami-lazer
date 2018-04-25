@@ -1,0 +1,34 @@
+{% extends 'layouts/nav.html.twig' %}
+
+{% block content %}
+
+    {# Affichage de la liste des clubs #}
+
+    <h3 class="text-center mt-3">{% trans %}club.list{% endtrans %}</h3>
+
+    <table class="table table-striped table-middle-aligned">
+        <thead>
+        <tr class="bg-info">
+            <th scope="col">CODE_CENTRE</th>
+            <th scope="col">ADRESSE</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for club in clubs %}
+            <tr>
+                <td>{{ club.code }}</td>
+                <td>{{ club.address }}</td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4" align="center">Aucun club trouvé</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
+
+{% block page_title %}
+    {% trans %}club.name{% endtrans %}
+{% endblock %}
+

@@ -1,0 +1,51 @@
+default:
+    suites:
+        acceptance:
+            contexts:
+                 - FeatureContext
+                 - SecurityContext
+                 - AdminContext
+                 - FixtureContext:
+                    em: "@doctrine.orm.default_entity_manager"
+            local_coverage_enabled: true
+
+        system:
+            mink_session: default
+            contexts:
+                 - FeatureContext
+                 - SecurityContext
+                 - AdminContext
+                 - FixtureContext:
+                    em: "@doctrine.orm.default_entity_manager"
+            remote_coverage_enabled: true
+
+        default:
+            contexts:
+                - Behat\MinkExtension\Context\MinkContext
+                - SecurityContext
+                - AdminContext
+                - FixtureContext:
+                   em: "@doctrine.orm.default_entity_manager"
+    extensions:
+        Behat\MinkExtension:
+            base_url: http://localhost:8000
+            sessions:
+                default:
+                    goutte: ~
+            browser_name: chrome
+            goutte: ~
+            selenium2:
+                capabilities:
+                    chrome:
+                        binary: /usr/bin/google-chrome
+
+        BehatLocalCodeCoverage\LocalCodeCoverageExtension:
+            target_directory: '%paths.base%/var/coverage'
+        BehatRemoteCodeCoverage\RemoteCodeCoverageExtension:
+            target_directory: '%paths.base%/var/coverage'
+
+        Behat\Symfony2Extension:
+            kernel:
+                bootstrap: features/bootstrap/bootstrap.php
+                class: App\Kernel
+                env: dev

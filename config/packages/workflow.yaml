@@ -1,0 +1,21 @@
+framework:
+    workflows:
+        card_linking:
+            type: 'workflow'
+            marking_store:
+                type: 'single_state'
+                arguments:
+                    - 'currentPlace'
+            supports:
+                - App\Entity\Card
+            places:
+                - created
+                - waiting
+                - linked
+            transitions:
+                to_wait:
+                    from: created
+                    to:   waiting
+                to_link:
+                    from: waiting
+                    to:   linked
